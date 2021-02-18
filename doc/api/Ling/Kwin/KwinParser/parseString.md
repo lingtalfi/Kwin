@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [KwinParser::parseString](https://github.com/lingtalfi/Kwin/blob/master/KwinParser.php#L31-L160)
+See the source code for method [KwinParser::parseString](https://github.com/lingtalfi/Kwin/blob/master/KwinParser.php#L31-L162)
 
 
 See Also

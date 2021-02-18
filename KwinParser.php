@@ -48,6 +48,8 @@ class KwinParser
 
 
         foreach ($lines as $line) {
+
+
             if (null === $commandName) {
                 if (preg_match('!^- \*\*([a-zA-Z0-9_-]+)\*\*:?(.*)!', $line, $match)) {
                     $commandName = $match[1];
@@ -63,14 +65,14 @@ class KwinParser
                 } else {
 
 
-                    if (preg_match("!^ {6}- parameters:\s*$!", $line, $match)) {
+                    if (preg_match("!^ {8}- parameters:\s*$!", $line, $match)) {
                         $argumentsType = "parameter";
                         $pmtName = null;
-                    } elseif (preg_match("!^ {6}- options:\s*$!", $line, $match)) {
+                    } elseif (preg_match("!^ {8}- options:\s*$!", $line, $match)) {
                         $argumentsType = "option";
                         $optName = null;
                         $optItemName = null;
-                    } elseif (preg_match("!^ {6}- flags:\s*$!", $line, $match)) {
+                    } elseif (preg_match("!^ {8}- flags:\s*$!", $line, $match)) {
                         $argumentsType = "flag";
                         $flagName = null;
                     } else {
@@ -78,7 +80,7 @@ class KwinParser
 
                             switch ($argumentsType) {
                                 case "parameter":
-                                    if (preg_match("!^ {8}- ([^:]+):(.*)$!", $line, $match)) {
+                                    if (preg_match("!^ {12}- ([^:]+):(.*)$!", $line, $match)) {
                                         $pmtName = $match[1];
                                         $pmtDescription = $match[2];
                                         if (true === str_starts_with($pmtName, '?')) {
@@ -97,7 +99,7 @@ class KwinParser
                                     }
                                     break;
                                 case "option":
-                                    if (preg_match("!^ {8}- ([^:]+):(.*)$!", $line, $match)) {
+                                    if (preg_match("!^ {12}- ([^:]+):(.*)$!", $line, $match)) {
                                         $optName = $match[1];
                                         $optDescription = $match[2];
                                         $options[$optName] = [
@@ -109,7 +111,7 @@ class KwinParser
                                             $this->error("kwin syntax error: you must define an option after you declare the \"- options:\" line.");
                                         } else {
 
-                                            if (preg_match("!^ {10}- ([^:]+):(.*)$!", $line, $match)) {
+                                            if (preg_match("!^ {16}- ([^:]+):(.*)$!", $line, $match)) {
                                                 $optItemName = $match[1];
                                                 $optItemDescription = $match[2];
                                                 $options[$optName]["values"][$optItemName] = $optItemDescription;
@@ -124,7 +126,7 @@ class KwinParser
                                     }
                                     break;
                                 case "flag":
-                                    if (preg_match("!^ {8}- ([^:]+):(.*)$!", $line, $match)) {
+                                    if (preg_match("!^ {12}- ([^:]+):(.*)$!", $line, $match)) {
                                         $flagName = $match[1];
                                         $flagDescription = $match[2];
                                         $flags[$flagName] = $flagDescription;

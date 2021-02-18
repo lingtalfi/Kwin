@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.0.2 -- 2021-02-18
+
+    - update api to reflect new kwin notation (with multiple of four indentation)
+  
 - 1.0.1 -- 2021-02-18
 
     - update MiniMarkdownToBashtmlTranslator::convertArray, add options argument
