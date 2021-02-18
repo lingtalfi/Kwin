@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/Helper/MiniMarkdownToBashtmlTranslator.php#L85-L98)
+See the source code for method [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/Helper/MiniMarkdownToBashtmlTranslator.php#L85-L100)
 
 
 See Also

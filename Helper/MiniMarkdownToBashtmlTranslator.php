@@ -91,7 +91,9 @@ class MiniMarkdownToBashtmlTranslator
                 self::convertArrayRecursive($value, $tmpArr, $options);
                 $ret[$key] = $tmpArr;
             } else {
-                $value = self::convertString($value, $options);
+                if (true === is_string($value)) {
+                    $value = self::convertString($value, $options);
+                }
                 $ret[$key] = $value;
             }
         }

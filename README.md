@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.0.3 -- 2021-02-18
+
+    - fix MiniMarkdownToBashtmlTranslator::convertArrayRecursive converting non string values to strings
+  
 - 1.0.2 -- 2021-02-18
 
     - update api to reflect new kwin notation (with multiple of four indentation)
