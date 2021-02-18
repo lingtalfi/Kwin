@@ -26,8 +26,8 @@ class <span class="pl-k">MiniMarkdownToBashtmlTranslator</span>  {
 
 - Methods
     - public static [convertString](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertString.md)(string $string, ?array $options = []) : string
-    - public static [convertArray](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArray.md)(array $arr) : array
-    - private static [convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArrayRecursive.md)(array $arr, array &$ret) : void
+    - public static [convertArray](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArray.md)(array $arr, ?array $options = []) : array
+    - private static [convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArrayRecursive.md)(array $arr, array &$ret, ?array $options = []) : void
 
 }
 

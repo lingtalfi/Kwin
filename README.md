@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.0.1 -- 2021-02-18
+
+    - update MiniMarkdownToBashtmlTranslator::convertArray, add options argument
+  
 - 1.0.0 -- 2021-02-18
 
     - initial commit

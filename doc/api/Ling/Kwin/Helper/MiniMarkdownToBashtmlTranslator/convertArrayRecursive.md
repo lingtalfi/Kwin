@@ -16,12 +16,16 @@ Description
 ================
 
 
-private static [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArrayRecursive.md)(array $arr, array &$ret) : void
+private static [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/doc/api/Ling/Kwin/Helper/MiniMarkdownToBashtmlTranslator/convertArrayRecursive.md)(array $arr, array &$ret, ?array $options = []) : void
 
 
 
 
 Converts the mini-markdown to bashtml in the given array, and place it in the given $ret variable.
+
+Available options are:
+- fmtText: string=green, the bashtml format to use for the text part of a link
+- fmtUrl: string=blue, the bashtml format to use for the url part of a link
 
 
 
@@ -35,6 +39,10 @@ Parameters
     
 
 - ret
+
+    
+
+- options
 
     
 
@@ -53,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/Helper/MiniMarkdownToBashtmlTranslator.php#L74-L87)
+See the source code for method [MiniMarkdownToBashtmlTranslator::convertArrayRecursive](https://github.com/lingtalfi/Kwin/blob/master/Helper/MiniMarkdownToBashtmlTranslator.php#L85-L98)
 
 
 See Also

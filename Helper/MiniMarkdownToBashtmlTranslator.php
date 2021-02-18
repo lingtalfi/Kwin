@@ -51,13 +51,19 @@ class MiniMarkdownToBashtmlTranslator
      * Converts the [mini-markdown](https://github.com/lingtalfi/TheBar/blob/master/discussions/kwin-notation.md#mini-markdown)) to @page(bashtml) in the given array, and returns the result.
      * Both the keys and the values are translated.
      *
+     * Available options are:
+     * - fmtText: string=green, the bashtml format to use for the text part of a link
+     * - fmtUrl: string=blue, the bashtml format to use for the url part of a link
+     *
+     *
      * @param array $arr
+     * @param array $options
      * @return array
      */
-    public static function convertArray(array $arr): array
+    public static function convertArray(array $arr, array $options = []): array
     {
         $ret = [];
-        self::convertArrayRecursive($arr, $ret);
+        self::convertArrayRecursive($arr, $ret, $options);
         return $ret;
     }
 
@@ -68,19 +74,24 @@ class MiniMarkdownToBashtmlTranslator
     /**
      * Converts the mini-markdown to bashtml in the given array, and place it in the given $ret variable.
      *
+     * Available options are:
+     * - fmtText: string=green, the bashtml format to use for the text part of a link
+     * - fmtUrl: string=blue, the bashtml format to use for the url part of a link
+     *
      * @param array $arr
      * @param array $ret
+     * @param array $options
      */
-    private static function convertArrayRecursive(array $arr, array &$ret)
+    private static function convertArrayRecursive(array $arr, array &$ret, array $options = [])
     {
         foreach ($arr as $key => $value) {
-            $key = self::convertString($key);
+            $key = self::convertString($key, $options);
             if (true === is_array($value)) {
                 $tmpArr = [];
-                self::convertArrayRecursive($value, $tmpArr);
+                self::convertArrayRecursive($value, $tmpArr, $options);
                 $ret[$key] = $tmpArr;
             } else {
-                $value = self::convertString($value);
+                $value = self::convertString($value, $options);
                 $ret[$key] = $value;
             }
         }
