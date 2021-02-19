@@ -41,10 +41,12 @@ class KwinParser
         $parameters = [];
         $options = [];
         $flags = [];
+        $aliases = [];
         $pmtName = null;
         $optName = null;
         $optItemName = null;
         $flagName = null;
+        $aliasName = null;
 
 
         foreach ($lines as $line) {
@@ -74,6 +76,9 @@ class KwinParser
                         $optItemName = null;
                     } elseif (preg_match("!^ {8}- flags:\s*$!", $line, $match)) {
                         $argumentsType = "flag";
+                        $flagName = null;
+                    } elseif (preg_match("!^ {8}- aliases:\s*$!", $line, $match)) {
+                        $argumentsType = "alias";
                         $flagName = null;
                     } else {
                         if (null !== $argumentsType) {
@@ -138,6 +143,17 @@ class KwinParser
                                         }
                                     }
                                     break;
+                                case "alias":
+                                    if (preg_match("!^ {12}- (.*)$!", $line, $match)) {
+                                        $aliasName = $match[1];
+                                        $aliases[] = $aliasName;
+                                    } else {
+                                        if ('' === trim($line)) {
+                                            continue 2;
+                                        }
+                                        $this->error("kwin syntax error: you must define an alias after you declare the \"- aliases:\" line.");
+                                    }
+                                    break;
                                 default:
                                     $this->error("Unknown argument type: $argumentsType.");
                                     break;
@@ -158,6 +174,7 @@ class KwinParser
             "parameters" => $parameters,
             "options" => $options,
             "flags" => $flags,
+            "aliases" => $aliases,
         ];
     }
 

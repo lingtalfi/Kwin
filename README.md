@@ -1,6 +1,6 @@
 Kwin
 ===========
-2021-02-18
+2021-02-18 -> 2021-02-19
 
 
 
@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.0.4 -- 2021-02-19
+
+    - update api, adapt for aliases feature of kwin
+  
 - 1.0.3 -- 2021-02-18
 
     - fix MiniMarkdownToBashtmlTranslator::convertArrayRecursive converting non string values to strings
