@@ -1,6 +1,6 @@
 Kwin
 ===========
-2021-02-18 -> 2021-03-05
+2021-02-18 -> 2021-05-31
 
 
 
@@ -41,6 +41,10 @@ Summary
 History Log
 =============
 
+- 1.0.6 -- 2021-05-31
+
+    - update KwinParser, add more verbose debug messages. Fix KiwnParser triggering error when more than one kwin definition is parsed.
+  
 - 1.0.5 -- 2021-03-05
 
     - update README.md, add install alternative
